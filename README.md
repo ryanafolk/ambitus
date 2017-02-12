@@ -1,4 +1,4 @@
-<span style="font-variant:small-caps;">Ambitus -- Bayesian Ancestral Niche Reconstruction Pipeline</span>
+<span style="font-variant:small-caps;">Ambitus&mdash;Bayesian Ancestral Niche Reconstruction Pipeline</span>
 =========
 
 Overview
@@ -39,15 +39,15 @@ How to run the pipeline
 ---------
 This program is run through the command line. The first argument is an integer specifying the number of variables to be used (using a subset of your full variable set is useful for testing and troubleshooting). The second argument is the number of processors you would like to use. The third argument is the number of times you would like to sample from the predicted niche occupancy (PNO) distribution. For the fourth argument, in the style of RAxML, you should specify a run ID for identifying the output of a single run. Be warned, however, if you pick the same run ID in the same directory later, the previous output will be overwritten without warning. For an example of the argument format, execute the script without arguments.
 
-For instance, on a small computer you might give the main script executable permissions (`$ chmod a+x ancestralnichereconstruction-p.py`), then run it as an executable like so:
+For instance, on a small computer you might give the main script executable permissions (`$ chmod a+x ambitus.py`), then run it as an executable like so:
 ```
-$ ./ancestralnichereconstruction-p.py 20 4 100 some_run_name
+$ ./ambitus.py 20 4 100 some_run_name
 ```
 This will do a run on 100 samples from each of 20 niche variables, using 4 processors, and output the results as XXXXXXXXsome_run_name.XXX. This will involve 2000 separate calls to BayesTraits, so if your tree is large make sure you have access to a powerful machine (specifically, a large number of cores, since the amount of RAM needed is trivial).
 
 If this does not work, you might still be having trouble with permissions, or with how your terminal's environmental variables are set up -- it may not know where to find Python 3. Try running it in non-executable mode:
 ```
-$ python3 ancestralnichereconstruction-p.py 20 4 100 some_run_name
+$ python3 ambitus.py 20 4 100 some_run_name
 ```
 
 You may wish to verify the presence of sufficient harddrive space (`$ df -h`), since the output of this program tends to be several to hundreds of gigabytes.
