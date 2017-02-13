@@ -1,6 +1,8 @@
 <span style="font-variant:small-caps;">Ambitus&mdash;Bayesian Ancestral Niche Reconstruction Pipeline</span>
 =========
 
+<img src="https://github.com/ryanafolk/ambitus/blob/master/img/AmbitusSymbol.png" width="200">
+
 Overview
 ---------
 This program is both a wrapper for BayesTraits and a pipeline for importing niche occupancy profile data from an arbitrary number of species niche models, integrating these data with a phylogeny of these species, and summarizing BayesTraits output on trees that are formatted for producing publication-quality figures.
