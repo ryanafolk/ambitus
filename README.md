@@ -92,3 +92,7 @@ To run the E-space overlap calculation once the the MCMC preprocessing for the r
 ```
 
 The last two scripts spit output into STOUT.
+
+Etymology
+---------
+The name of the software is a musical reference: medieval theorists constructed scales from adjacent tetrachords, a practice descended from the Greeks; an ambitus (L., a cycle or encirclement) is the range from the lowest to the highest of the notes in this set, which typically was not exceeded in Gregorian chant.
