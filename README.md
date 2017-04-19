@@ -47,7 +47,7 @@ This will do a run on 100 samples from each of 20 niche variables, using 4 proce
 
 If this does not work, you might still be having trouble with permissions, or with how your terminal's environmental variables are set up&mdash;it may not know where to find Python 3. Try running it in non-executable mode:
 ```
-$ python3 ancestralnichereconstruction-p.py 20 4 100 some_run_name
+$ python3 ambitus.py 20 4 100 some_run_name
 ```
 
 You may wish to verify the presence of sufficient harddrive space (`$ df -h`), since the output of this program tends to be several to hundreds of gigabytes.
