@@ -17,6 +17,7 @@ import csv # To process tab-delimited files
 import multiprocessing # Library for multiprocess functions
 
 import ambitus_main # Main functions for this script
+from ambitus_main import shell_call as shell_call
 import ambitus_bayestraitscontroller # Module for controlling individual runs of BayesTraits
 import ambitus_pno_sampler
 import ambitus_pno_annotatetips
@@ -41,9 +42,7 @@ except: # Handle incorrect argument passing
 totalnodenumber = 0	# This will be updated by the GenerateNodeList function
 totalnodenumber = ambitus_main.GenerateNodeList(totalnodenumber) # Create BayesTraits command file for the ancestral reconstruction step; this requires that we identify all internal nodes by their terminal descendents
 
-p = subprocess.Popen('mkdir pnos; mkdir output; mkdir sampled_pnos; mkdir temp',shell=True) 
-p.wait() # This forces these shell calls to be sequential
-sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
+shell_call('mkdir pnos; mkdir output; mkdir sampled_pnos; mkdir temp') 
 
 specieslist = []
 try:
@@ -126,7 +125,4 @@ print("Time taken: {0} seconds.".format(time.time() - starttime))
 
 answer = input("Remove intermediate files? (y/n): ")
 if answer == "y":
-	p = subprocess.Popen('rm ./temp/reconstructionclean*{0}.out && rm ./temp/variable*{0}.txt && rm ./temp/node*annotations*{0}.txt'.format(runID),shell=True) 
-	p.wait() # This forces these shell calls to be sequential
-	sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
-
+	shell_call('rm ./temp/reconstructionclean*{0}.out && rm ./temp/variable*{0}.txt && rm ./temp/node*annotations*{0}.txt'.format(runID)) 

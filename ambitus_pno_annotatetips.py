@@ -4,7 +4,7 @@ import csv # To process tab-delimited files
 import numpy # Used for random sampling 
 import sys # To process arguments
 import subprocess
-import ambitus_main
+from ambitus_main import shell_call as shell_call
 
 def AnnotateTips(process):
 	binlist = [] # List of bins created by phyloclim
@@ -43,14 +43,11 @@ def AnnotateTips(process):
 		specieslabellist[species] = label
 		midpointlist = []
 	
-	p = subprocess.Popen('cp tree_labels_midpoints_clean.tre tree_labels_midpointsandtips.tre',shell=True)
-	p.wait() # This forces these shell calls to be sequential 
-	sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
+	shell_call('cp tree_labels_midpoints_clean.tre tree_labels_midpointsandtips.tre')
 	
 	for species in specieslist:
 		specieslabel = specieslabellist[species]
-		command = 'sed "s/{0}:/{0}{1}:/g" tree_labels_midpointsandtips.tre > temp.temp && mv temp.temp tree_labels_midpointsandtips.tre'.format(species,specieslabel)
+		command = 'sed "s/{0}:/{0}{1}:/g" tree_labels_midpointsandtips.tre > temp'.format(species,specieslabel)
 		command = command.replace("&","\&")
-		p = subprocess.Popen(command,shell=True)
-		p.wait() # This forces these shell calls to be sequential 
-		sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
+		shell_call(command)
+		shell_call("mv temp tree_labels_midpointsandtips.tre")
