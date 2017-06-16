@@ -16,7 +16,7 @@ import numpy # Used for random sampling
 import csv # To process tab-delimited files
 import multiprocessing # Library for multiprocess functions
 
-import ambitus_main # Main functions for this script
+import ambitus_main.shell_call as shell_call # Main functions for this script
 import ambitus_bayestraitscontroller # Module for controlling individual runs of BayesTraits
 import ambitus_pno_sampler
 import ambitus_pno_annotatetips
