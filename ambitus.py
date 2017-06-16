@@ -21,6 +21,11 @@ import ambitus_bayestraitscontroller # Module for controlling individual runs of
 import ambitus_pno_sampler
 import ambitus_pno_annotatetips
 
+def shell_call(command):
+	p = subprocess.Popen(command, shell=True)
+	p.wait()
+	sys.stdout.flush() 
+
 print("Ambitus -- software for Bayesian ancestral niche reconstruction.\n")
 
 commands = []
