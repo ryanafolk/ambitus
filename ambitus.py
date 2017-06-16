@@ -36,7 +36,7 @@ try: # Parse command line arguments
 	runID = "_runID-{0}".format(runID)
 except: # Handle incorrect argument passing
 	print("Error, four arguments must be provided: the number of variables, the number of processors you wish to use, the number of samples for each variable range, and an arbitrary runID string to keep track of outputs.")
-	print("Example: python3 bayestraitsparallel.py 20 4 100 foobar")
+	print("Example: python3 ambitus.py 12 4 100 foobar")
 	sys.exit()
 
 totalnodenumber = 0	# This will be updated by the GenerateNodeList function
