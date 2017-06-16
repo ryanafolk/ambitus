@@ -35,7 +35,7 @@ def bayesproc(commandargs):
 	p = subprocess.Popen("mv ./temp/character{0}{1}{2}.txt.log.txt.Schedule.txt ./output/character{0}{1}{2}.RECONSTRUCTION_ACCEPTANCE.log".format(processID,bootlabel,runID),shell=True) # Save log output; will be overwritten without this step
 	p.wait() 
 	sys.stdout.flush()
-	p = subprocess.Popen("sed -e '1,/.*Harmonic Mean.*/ d' ./temp/reconstruction{0}{1}{2}.out | sed -e '$ d' > ./temp/reconstructionclean{0}{1}{2}.out".format(processID,bootlabel,runID),shell=True) # Trim output of BayesTraits to just the tab-delimited MCMC
+	p = subprocess.Popen("sed '1,/.*Harmonic Mean.*/ d' ./temp/reconstruction{0}{1}{2}.out | sed '$ d' > ./temp/reconstructionclean{0}{1}{2}.out".format(processID,bootlabel,runID),shell=True) # Trim output of BayesTraits to just the tab-delimited MCMC
 	p.wait()
 	sys.stdout.flush()
 	print("Variable {0}, PNO sample {1}: Done.".format(processID,bootnum))
