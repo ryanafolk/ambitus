@@ -1,9 +1,14 @@
 <span style="font-variant:small-caps;">Ancestral niche reconstruction&mdash;Botany 2017 demo</span>
 =========
 
+Introduction
+---------
+This document can be found online at https://github.com/ryanafolk/ambitus/edit/botany_2017/. The goal of this demonstration is to perform a simple of ancestral niche reconstruction on a small phylogeny (actually a trimmed-down version of https://doi.org/10.1101/129189). This program is a pipeline for importing niche occupancy profile data from an arbitrary number of species niche models, and integrating these data with a phylogeny of these species. It is compatible with Linux and Mac. At this point in the workshop demonstration, the niche models have already been made.
+
+
 Setup
 ---------
-Run the prerequisite script sent in the workshop email if you haven’t already done so.
+Run the prerequisite script sent in the workshop email if you haven’t already done so; paste the text into a terminal window. You should also have FigTree installed.
 
 Mac version:
 
@@ -51,14 +56,26 @@ rm -rf bayes/
 rm BayesTraitsV2.tar.gz
 ```
 
-This program is both a wrapper for BayesTraits and a pipeline for importing niche occupancy profile data from an arbitrary number of species niche models, integrating these data with a phylogeny of these species, and summarizing BayesTraits output on trees that are formatted for producing publication-quality figures.
-
-It is designed to incorporate large numbers of taxa, but be warned -- it is very processor-intensive for > 100 taxa. In view of this, the pipeline is designed to be automatically parallelized on a given number of processors. If you do not know the number of (logical) processors you have, you can query the Unix terminal (including the Mac OSX terminal) like so: 
-
-
+Starting a run
+---------
+At this point, make sure you are still in the `ambitus` folder. We need to run the program with four options set. First, we need to determine the number of threads (independent instruction streams) your computer has. You can query the Unix terminal (including the Mac OSX terminal) like so: 
 
 ```
-$ nproc
+nproc
+```
+
+There are two further variables we need to decide on: the number of variables to use (we will use all 12 for this purpose), and the number of replicates to sample (i.e., the number of independent ancestral reconstructions; lets use 10 to make sure the program finishes quickly). 
+
+Finally, we need to decide on a namespace for the output. This is similar to RaxML -- adding a file suffix allows us to keep track of multiple runs. To figure out exactly how to input these, you can get an example from the program itself:
+
+```
+python3 ambitus.py
+```
+
+So your final command will look something like this (assuming the processor has 4 threads):
+
+```
+python3 ambitus.py 12 4 10 test
 ```
 
 Dependencies
