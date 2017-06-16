@@ -47,7 +47,7 @@ def AnnotateTips(process):
 	
 	for species in specieslist:
 		specieslabel = specieslabellist[species]
-		command = 'sed "s/{0}:/{0}{1}:/g" tree_labels_midpointsandtips.tre > temp'.format(species,specieslabel)
+		command = 'sed "s/{0}:/{0}{1}:/g" tree_labels_midpointsandtips.tre > temp.txt'.format(species,specieslabel)
 		command = command.replace("&","\&")
 		shell_call(command)
-		shell_call("mv temp tree_labels_midpointsandtips.tre")
+		shell_call("mv temp.txt tree_labels_midpointsandtips.tre")
