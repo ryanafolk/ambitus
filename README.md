@@ -17,7 +17,7 @@ Dependencies
 ---------
 The pipeline is coded in Python 3 and requires a UNIX-like machine (Linux, Mac OSX, etc.) with a bash shell and the default tools. If you do not have Python 3, you must install it, but it is important to understand that you will probably be installing coexisting versions. UNIX-like operating systems commonly depend on a default installation of Python, which will typically be Python 2. This will be the executable in your path called `python` when you type that in the shell. Using `$ python3`, on the other hand, will call on the proper version. Additionally, you will need a few libraries on which this program depends&mdash;`dendropy` for phylogenetic functions and `numpy` for statistical functions. These may be installed in various ways, but I recommend installing pip if you do not already have it. If you run into the issue of coexisting Python versions, install using $ python3 -m pip install dendropy and $ python3 -m pip install numpy rather than calling directly on the pip executable.
 
-The presence of GNU tools (especially sed) are assumed. In an OS-X environment (which has less useful BSD tools), the defaults must be replaced (use homebrew) or coexisting versions must be in the path with default names. 
+An attempt has been made to maintain compatibility with both GNU tools (Linux) and BSD tools (OS-X). If sed presents problems on OS-X, install the GNU version with homebrew. 
 
 Additionally, you should install `figtree`, which uses Java Runtime Environment, in order to visualize the phylogenetic output.
 
