@@ -51,14 +51,9 @@ def GenerateNodeList(totalnodenumber):
 			nodename = "node{0}".format(nodenumber)
 			writer.writerow([MRCA,nodename,x])
 	
-	p = subprocess.Popen('sed \'s/\"//g\' new_reconstruction.command > reconstructionnodelist.command',shell=True) # Creates a command file for a given run; needed to prevent clashing writes to the .bin file
-	p.wait() # This forces these shell calls to be sequential
-	sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
-	p = subprocess.Popen('cat template_reconstruction.command reconstructionnodelist.command template2_reconstruction.command > reconstruction.command',shell=True) # This round-about method is needed because the numerical arguments for BayesTraits have encoding issues
-	p.wait() # This forces these shell calls to be sequential
-	sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
-
-	p = subprocess.Popen("rm new_reconstruction.command",shell=True) # Creates a command file for a given run; needed to prevent clashing writes to the .bin file
+	shell_call('sed \'s/\"//g\' new_reconstruction.command > reconstructionnodelist.command') # Creates a command file for a given run; needed to prevent clashing writes to the .bin file
+	shell_call('cat template_reconstruction.command reconstructionnodelist.command template2_reconstruction.command > reconstruction.command') # This round-about method is needed because the numerical arguments for BayesTraits have encoding issues
+	shell_call("rm new_reconstruction.command") # Creates a command file for a given run; needed to prevent clashing writes to the .bin file
 	return (totalnodenumber)
 
 # DEPRECTATED: This function performs the ecological range sampling and outputs sampled character tsv files that BayesTraits can operate on
@@ -280,9 +275,7 @@ def PlotTrees(totalnodenumber,runID):
 	tree.write_to_path("tree_labels_ranges.tre", schema="nexus")
 
 	# CLEAN UP LABELED TREES FOR FIGTREE
-	p = subprocess.Popen('''sed "s/'//g" tree_labels_midpoints.tre > tree_labels_midpoints_clean.tre''',shell=True) 
-	p = subprocess.Popen('''sed "s/'//g" tree_labels_ranges.tre > tree_labels_ranges_clean.tre''',shell=True) 
-	p = subprocess.Popen('''sed "s/'//g" tree_labels_midpoints.tre > tree_labels_midpoints_clean.tre''',shell=True) 
-	p = subprocess.Popen('''sed "s/'//g" tree_labels_ranges.tre > tree_labels_ranges_clean.tre''',shell=True) 
-	p.wait() # This forces these shell calls to be sequential
-	sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
+	shell_call('''sed "s/'//g" tree_labels_midpoints.tre > tree_labels_midpoints_clean.tre''') 
+	shell_call('''sed "s/'//g" tree_labels_ranges.tre > tree_labels_ranges_clean.tre''') 
+	shell_call('''sed "s/'//g" tree_labels_midpoints.tre > tree_labels_midpoints_clean.tre''') 
+	shell_call('''sed "s/'//g" tree_labels_ranges.tre > tree_labels_ranges_clean.tre''')
