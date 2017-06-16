@@ -43,7 +43,7 @@ git clone https://github.com/ryanafolk/ambitus/
 git checkout botany_2017
 cd ambitus
 
-wget http://www.evolution.rdg.ac.uk/BayesTraitsV2.0Files/OSX/BayesTraitsV2.tar.gz
+wget http://www.evolution.rdg.ac.uk/BayesTraitsV2.0Files/Linux64/BayesTraitsV2.tar.gz
 tar -zxvf BayesTraitsV2.tar.gz
 mv BayesTraitsV2 bayes
 mv bayes/BayesTraitsV2 ./
