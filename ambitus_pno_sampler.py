@@ -3,7 +3,7 @@
 import csv # To process tab-delimited files
 import numpy # Used for random sampling 
 import sys # To process arguments
-import ambitus_main
+from ambitus_main import shell_call as shell_call
 
 def SampleDistribution(process,bootstraptotal,runID,species):
 	input = './pnos/pno{0}_{1}.csv'.format(process,species)
