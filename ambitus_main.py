@@ -7,6 +7,12 @@ import numpy # Used for random sampling
 import csv # To process tab-delimited files
 import dendropy # To process trees
 
+# Shorthand for a shell command. p.wait() and sys.stdout.flush() prevent clashing writes to log files due to buffering.
+def shell_call(command):
+	p = subprocess.Popen(command, shell=True)
+	p.wait()
+	sys.stdout.flush() 
+
 # This function finds all internal non-root nodes in the tree, and recursively finds all of their descendent terminal taxa; this is necessary because BayesTraits identifies nodes by a MRCA method
 def GenerateNodeList(totalnodenumber):
 	print("Discovering all internal non-root nodes in the given plotting tree and listing their descendent terminal nodes.")
