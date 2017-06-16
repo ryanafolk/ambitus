@@ -5,11 +5,6 @@ import numpy # Used for random sampling
 import sys # To process arguments
 import subprocess
 
-def shell_call(command):
-	p = subprocess.Popen(command, shell=True)
-	p.wait()
-	sys.stdout.flush() 
-
 def AnnotateTips(process):
 	binlist = [] # List of bins created by phyloclim
 	weightlist = [] # List of probabilities matched to bins, used for weighted average
@@ -47,9 +42,7 @@ def AnnotateTips(process):
 		specieslabellist[species] = label
 		midpointlist = []
 	
-	p = subprocess.Popen('cp tree_labels_midpoints_clean.tre tree_labels_midpointsandtips.tre',shell=True)
-	p.wait() # This forces these shell calls to be sequential 
-	sys.stdout.flush() # This forces emptying of the buffer, avoiding clashing logfile read/writes
+	shell_call('cp tree_labels_midpoints_clean.tre tree_labels_midpointsandtips.tre')
 	
 	for species in specieslist:
 		specieslabel = specieslabellist[species]
