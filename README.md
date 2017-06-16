@@ -1,13 +1,61 @@
-<span style="font-variant:small-caps;">Ambitus&mdash;Bayesian Ancestral Niche Reconstruction Pipeline</span>
+<span style="font-variant:small-caps;">Ancestral niche reconstruction&mdash;Botany 2017 demo</span>
 =========
 
-<img src="https://github.com/ryanafolk/ambitus/blob/master/img/AmbitusSymbol.png" width="200">
-
-Overview
+Setup
 ---------
+Run the prerequisite script sent in the workshop email if you haven’t already done so.
+
+Mac version:
+
+```
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install dependencies
+brew install python3
+pip3 install numpy
+pip3 install dendropy
+
+cd ~/Desktop/
+git clone https://github.com/ryanafolk/ambitus/
+git checkout botany_2017
+cd ambitus
+
+curl http://www.evolution.rdg.ac.uk/BayesTraitsV2.0Files/OSX/BayesTraitsV2.tar.gz -o BayesTraitsV2.tar.gz
+tar -zxvf BayesTraitsV2.tar.gz
+mv BayesTraitsV2 bayes
+mv bayes/BayesTraitsV2 ./
+rm -rf bayes/
+rm BayesTraitsV2.tar.gz
+```
+
+Linux version:
+
+```
+sudo apt-get install python3
+sudo apt-get update
+sudo apt-get -y install python3-pip
+pip3 install numpy # if this doesn't work, try replacing "pip3" with "python3 -m pip"
+pip3 install dendropy
+
+cd ~
+git clone https://github.com/ryanafolk/ambitus/
+git checkout botany_2017
+cd ambitus
+
+wget http://www.evolution.rdg.ac.uk/BayesTraitsV2.0Files/OSX/BayesTraitsV2.tar.gz
+tar -zxvf BayesTraitsV2.tar.gz
+mv BayesTraitsV2 bayes
+mv bayes/BayesTraitsV2 ./
+rm -rf bayes/
+rm BayesTraitsV2.tar.gz
+```
+
 This program is both a wrapper for BayesTraits and a pipeline for importing niche occupancy profile data from an arbitrary number of species niche models, integrating these data with a phylogeny of these species, and summarizing BayesTraits output on trees that are formatted for producing publication-quality figures.
 
 It is designed to incorporate large numbers of taxa, but be warned -- it is very processor-intensive for > 100 taxa. In view of this, the pipeline is designed to be automatically parallelized on a given number of processors. If you do not know the number of (logical) processors you have, you can query the Unix terminal (including the Mac OSX terminal) like so: 
+
+
 
 ```
 $ nproc
