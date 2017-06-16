@@ -2,7 +2,7 @@
 
 import subprocess # To call on bash
 import sys # To process arguments
-import ambitus_main
+from ambitus_main import shell_call as shell_call
 
 def bayesproc(commandargs):
 	processID = commandargs[0]
