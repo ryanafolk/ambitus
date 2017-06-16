@@ -4,6 +4,7 @@ import csv # To process tab-delimited files
 import numpy # Used for random sampling 
 import sys # To process arguments
 import subprocess
+import ambitus_main
 
 def AnnotateTips(process):
 	binlist = [] # List of bins created by phyloclim
