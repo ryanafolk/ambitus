@@ -2,6 +2,7 @@
 
 import subprocess # To call on bash
 import sys # To process arguments
+import ambitus_main
 
 
 def bayesproc(commandargs):
