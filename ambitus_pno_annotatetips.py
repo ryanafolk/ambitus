@@ -48,7 +48,7 @@ def AnnotateTips(process):
 	
 	for species in specieslist:
 		specieslabel = specieslabellist[species]
-		command = 'sed -i "s/{0}:/{0}{1}:/g" tree_labels_midpointsandtips.tre'.format(species,specieslabel)
+		command = 'sed "s/{0}:/{0}{1}:/g" temp.temp && mv temp.temp tree_labels_midpointsandtips.tre'.format(species,specieslabel)
 		command = command.replace("&","\&")
 		p = subprocess.Popen(command,shell=True)
 		p.wait() # This forces these shell calls to be sequential 
