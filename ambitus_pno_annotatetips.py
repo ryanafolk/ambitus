@@ -5,6 +5,11 @@ import numpy # Used for random sampling
 import sys # To process arguments
 import subprocess
 
+def shell_call(command):
+	p = subprocess.Popen(command, shell=True)
+	p.wait()
+	sys.stdout.flush() 
+
 def AnnotateTips(process):
 	binlist = [] # List of bins created by phyloclim
 	weightlist = [] # List of probabilities matched to bins, used for weighted average
