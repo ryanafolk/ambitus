@@ -181,7 +181,7 @@ def FindPlottingNumbers(totalnodenumber,totalvariablenumber,runID):
 # This function plots support values at nodes and exports two tree in Nexus format: one with 50th percentiles and one with ranges
 def PlotTrees(totalnodenumber,runID):
 
-	tree = dendropy.Tree.get(path="plottree.tre", schema="nexus", preserve_underscores=True)
+	tree = dendropy.Tree.get(path="plottree.tre", schema="nexus", preserve_underscores=True, rooting='force-rooted') # Forcing rooting takes care of issue in early versions where the root was collapsed to a trifurcation
 
 	# This reads the all the nodes and their respective descendents, created earlier for BayesTraits
 	NODElist = []
