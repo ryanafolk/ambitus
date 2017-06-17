@@ -7,7 +7,7 @@ Overview
 ---------
 This program is both a wrapper for BayesTraits and a pipeline for importing niche occupancy profile data from an arbitrary number of species niche models, integrating these data with a phylogeny of these species, and summarizing BayesTraits output on trees that are formatted for producing publication-quality figures.
 
-It is designed to incorporate large numbers of taxa, but be warned -- it is very processor-intensive for > 100 taxa. In view of this, the pipeline is designed to be automatically parallelized on a given number of processors. If you do not know the number of (logical) processors you have, you can query the Unix terminal (including the Mac OSX terminal) like so: 
+It is designed to incorporate large numbers of taxa, although it is very processor-intensive for > 100 taxa. In view of this, the pipeline is designed to be automatically parallelized. If you do not know the number of threads your machine has, you can query the Unix terminal (including the Mac OSX terminal) like so: 
 
 ```
 $ nproc
