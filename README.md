@@ -13,6 +13,8 @@ It is designed to incorporate large numbers of taxa, although it is very process
 $ nproc
 ```
 
+It is assumed that PNOs (predicted niche occupancy profiles) have already been extracted from niche models or other sources. These should be constructed per-species and per-variable, following the example files given in this repository. This format derives from exporting PNOs made in R package phyloclim as csv format. 
+
 Dependencies
 ---------
 The pipeline is coded in Python 3 and requires a UNIX-like machine (Linux, Mac OSX, etc.) with a bash shell and the default tools. If you do not have Python 3, you must install it, but it is important to understand that you will probably be installing coexisting versions. UNIX-like operating systems commonly depend on a default installation of Python, which will typically be Python 2. This will be the executable in your path called `python` when you type that in the shell. Using `$ python3`, on the other hand, will call on the proper version. Additionally, you will need a few libraries on which this program depends&mdash;`dendropy` for phylogenetic functions and `numpy` for statistical functions. These may be installed in various ways, but I recommend installing pip if you do not already have it. If you run into the issue of coexisting Python versions, install using $ python3 -m pip install dendropy and $ python3 -m pip install numpy rather than calling directly on the pip executable.
