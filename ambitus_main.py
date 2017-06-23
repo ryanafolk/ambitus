@@ -248,6 +248,9 @@ def PlotTrees(totalnodenumber,runID):
 		midpointlabellist.append(midpointlabel)
 		midpointlabel = ""
 
+	NODElist.pop(0)
+	midpointlabellist.pop(0)
+		
 	for (node,midpoint) in zip(NODElist,midpointlabellist):
 		MRCA = tree.mrca(taxon_labels=node)
 		MRCA.label = midpoint
