@@ -23,8 +23,8 @@ pip3 install dendropy
 
 cd ~/Desktop/
 git clone https://github.com/ryanafolk/ambitus/
-git checkout botany_2017
 cd ambitus
+git checkout botany_2017
 
 curl http://www.evolution.rdg.ac.uk/BayesTraitsV2.0Files/OSX/BayesTraitsV2.tar.gz -o BayesTraitsV2.tar.gz
 tar -zxvf BayesTraitsV2.tar.gz
@@ -45,8 +45,8 @@ pip3 install dendropy
 
 cd ~
 git clone https://github.com/ryanafolk/ambitus/
-git checkout botany_2017
 cd ambitus
+git checkout botany_2017
 
 wget http://www.evolution.rdg.ac.uk/BayesTraitsV2.0Files/Linux64/BayesTraitsV2.tar.gz
 tar -zxvf BayesTraitsV2.tar.gz
