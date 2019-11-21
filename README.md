@@ -3,6 +3,8 @@
 
 <img src="https://github.com/ryanafolk/ambitus/blob/master/img/AmbitusSymbol.png" width="200">
 
+***Note before going further: the most common run error is not having GNU sed on your system. Eventually I hope to remove this requirement, but I will not have time in the near future so please verify your sed and that it is in the path under the name `sed`.***
+
 Overview
 ---------
 This program is both a wrapper for BayesTraits and a pipeline for importing niche occupancy profile data from an arbitrary number of species niche models, integrating these data with a phylogeny of these species, and summarizing BayesTraits output on trees that are formatted for producing publication-quality figures.
